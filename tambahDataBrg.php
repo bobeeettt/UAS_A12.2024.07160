@@ -244,5 +244,30 @@
             <button type="submit" class="submit-btn">Simpan Data</button>
         </form>
     </div>  
+
+    <script>
+document.querySelector('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const kodeBarang = document.querySelector('input[name="kode_brg"]').value;
+    const namaBarang = document.querySelector('input[name="nama"]').value;
+    const email = document.querySelector('input[name="email"]').value;
+    const password = document.querySelector('input[name="password"]').value;
+    
+    let pesanKonfirmasi = `Apakah Anda yakin ingin menyimpan data barang?\n\n`;
+    pesanKonfirmasi += `Kode Barang: ${kodeBarang}\n`;
+    pesanKonfirmasi += `Nama: ${namaBarang}\n`;
+    
+    if (email && password) {
+        pesanKonfirmasi += `\nPERHATIAN: Anda juga membuat akun admin baru!\n`;
+        pesanKonfirmasi += `Email: ${email}`;
+    }
+    
+    if (confirm(pesanKonfirmasi)) {
+        this.submit();
+    }
+});
+</script>
+
 </body>
 </html>

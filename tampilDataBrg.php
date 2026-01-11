@@ -253,5 +253,28 @@
             </table>
         </div>
     </div>
+
+    <script>
+document.querySelector('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const kodeBarang = document.querySelector('input[name="kode_brg"]').value;
+    const namaBarang = document.querySelector('input[name="nama"]').value;
+    const password = document.querySelector('input[name="password"]').value;
+    
+    let pesanKonfirmasi = `Apakah Anda yakin ingin mengupdate data barang?\n\n`;
+    pesanKonfirmasi += `Kode Barang: ${kodeBarang}\n`;
+    pesanKonfirmasi += `Nama: ${namaBarang}\n`;
+    
+    if (password) {
+        pesanKonfirmasi += `\nPERHATIAN: Password akan diubah!`;
+    }
+    
+    if (confirm(pesanKonfirmasi)) {
+        this.submit();
+    }
+});
+</script>
+
 </body>
 </html>
